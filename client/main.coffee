@@ -1,3 +1,3 @@
 Meteor.subscribe('posts',[],()->
-  console.log("Subscripcion completa")
+  console.log("Subscripcion completa a la Coleccion")
 )
