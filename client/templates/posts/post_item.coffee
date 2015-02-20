@@ -5,6 +5,6 @@ Template.postItem.helpers(
     return a.hostname
 
   log : (parentContext)->
-    console.log(@)
-    console.log(parentContext)
+    #console.log(@)
+    #console.log(parentContext)
 )
