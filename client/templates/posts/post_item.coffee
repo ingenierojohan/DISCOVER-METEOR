@@ -12,4 +12,7 @@ Template.postItem.helpers(
     a = @userId == Meteor.userId()
     console.log a
     return a
+
+  commentsCount : ->
+    Comments.find(postId:@._id).count()
 )

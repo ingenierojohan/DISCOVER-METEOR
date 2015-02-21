@@ -3,7 +3,7 @@ Router.configure(
   loadingTemplate : "loading"
   notFoundTemplate: "notFound"
   waitOn: ()->
-    return Meteor.subscribe("posts")
+    return [Meteor.subscribe("posts"), Meteor.subscribe('comments')]
 )
 
 Router.route("/", name: "postsList")
