@@ -15,4 +15,13 @@ Meteor.methods
       userId: user._id
       author: user.username
       submitted: new Date)
-    Comments.insert comment
+
+    #update the post whit de numbre of comments
+    Posts.update(comment.postId,{$inc:{commentsCount:1}})
+
+    comment._id = Comments.insert comment
+
+    # Ahora Creamos la Notificacion
+    createCommentNotification(comment)
+
+    return comment._id

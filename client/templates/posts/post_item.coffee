@@ -13,6 +13,4 @@ Template.postItem.helpers(
     console.log a
     return a
 
-  commentsCount : ->
-    Comments.find(postId:@._id).count()
 )
