@@ -1,6 +1,25 @@
 Posts = new Mongo.Collection('posts')
 @Posts = Posts
 
+
+Posts.allow(
+  update: (userId, post)->
+    return ownsDocument(userId, post)
+  remove: (userId, post)->
+    return ownsDocument(userId, post)
+)
+
+Posts.deny(
+  update: (userId, post, fieldNames)->
+    console.log("fieldNames",fieldNames)
+  #may only edit the following two fields:
+    return (_.without(fieldNames, 'url', 'title').length > 0)
+)
+
+
+
+
+
 Meteor.methods
   postInsert: (postAttributes) ->
     console.log(postAttributes)

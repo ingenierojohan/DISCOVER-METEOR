@@ -19,6 +19,15 @@ Router.route('/submit',
   name: 'postSubmit'
 )
 
+
+Router.route('/posts/:_id/edit',
+  name: 'postEdit'
+  data: ()->
+    return Posts.findOne(this.params._id)
+)
+
+
+
 requireLogin = ()->
   if (! Meteor.user())
     if (Meteor.loggingIn())

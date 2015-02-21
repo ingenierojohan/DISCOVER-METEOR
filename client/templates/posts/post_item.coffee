@@ -7,4 +7,9 @@ Template.postItem.helpers(
   log : (parentContext)->
     #console.log(@)
     #console.log(parentContext)
+
+  ownPost :()->
+    a = @userId == Meteor.userId()
+    console.log a
+    return a
 )
